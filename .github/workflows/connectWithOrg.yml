@@ -24,7 +24,7 @@ jobs:
               run: sf --version
 
             - name: Install Plugins (Delta Plugin)
-              run: sfdx plugins:install sfdx-git-delta
+              run: sfdx plugins:install sfdx-git-delta -y
 
             - name: Get Delta
               run: |
