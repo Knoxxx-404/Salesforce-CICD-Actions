@@ -2,7 +2,7 @@ name: "Connect With SF Org"
 on: workflow_dispatch
 jobs:
     validate-deployment:
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout the Code
               uses: actions/checkout@v3
@@ -21,4 +21,4 @@ jobs:
                 fi
 
             - name: Check SF Version
-              run: $(sf --version)
+              run: sf --version
