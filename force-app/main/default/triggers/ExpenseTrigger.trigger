@@ -2,12 +2,13 @@
  * @description       : 
  * @author            : Sangram Keshari Upadhyaya
  * @group             : 
- * @last modified on  : 31-08-2025
+ * @last modified on  : 01-09-2025
  * @last modified by  : Sangram Keshari Upadhyaya
  * Modifications Log
  * Ver   Date         Author                      Modification
  * 1.0   31-08-2025   Sangram Keshari Upadhyaya   Initial Version
 **/
+
 trigger ExpenseTrigger on Expense__c (after insert, after update, after delete, after undelete) {
     Set<Id> invoiceIds = new Set<Id>();
 
