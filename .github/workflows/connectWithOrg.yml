@@ -13,7 +13,7 @@ jobs:
                 then
                     echo "SF cli is present"
                 else
-                    echo "Installing sf...""
+                    echo "Installing sf..."
                     curl https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.gz -o sf-linux-x64.tar.gz
                     mkdir -p sf-cli
                     tar -xzf sf-linux-x64.tar.gz -C sf-cli --strip-components 1
