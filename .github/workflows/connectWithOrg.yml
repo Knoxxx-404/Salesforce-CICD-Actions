@@ -1,0 +1,20 @@
+name: "Connect With SF Org"
+on: workflow_dispatch
+jobs:
+    validate-deployment:
+        runs-on: macos-latest
+        steps:
+            - name: Checkout the Code
+              uses: actions/checkout@v3
+              
+            - name: Install SF CLI
+              run: |
+                if [[ sf ]];
+                then
+                    echo "SF cli is present"
+                else
+                    echo Installing sf...
+                    curl https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.gz -o sf-linux-x64.tar.gz
+                    mkdir -p sf-cli
+                    tar -xzf sf-linux-x64.tar.gz -C sf-cli --strip-components 1
+                    echo "${PWD}/sf-cli/bin" >> $GITHUB_PATH
