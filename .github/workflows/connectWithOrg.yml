@@ -32,6 +32,7 @@ jobs:
               run: |
                 sfdx sgd:source:delta --to HEAD --from HEAD^ --output-dir .
                 ls -la
+                ls -la force-app
 
             - name: Write Auth URL to File
               run: echo "${{ secrets.SF_TRG_SECURITY }}" > dxsecurity
@@ -42,4 +43,4 @@ jobs:
                 echo "Authorized org and set alias to [${{ secrets.SF_TRG_ORG_ALIAS }}]"
 
             - name: Validate the Delta Package
-              run: sf project deploy start --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --test-level RunLocalTests --dry-run --target-org ${{ secrets.SF_TRG_ORG_ALIAS }}
+              run: sf project deploy start --source-dir force-app --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --test-level RunLocalTests --dry-run --target-org ${{ secrets.SF_TRG_ORG_ALIAS }}
