@@ -1,5 +1,11 @@
 name: "Connect With SF Org"
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: 'Branch to compare against (e.g., main)'
+        required: true
+        default: 'main'
 jobs:
     validate-deployment:
         runs-on: ubuntu-latest
@@ -41,7 +47,7 @@ jobs:
 
             - name: Get Delta
               run: |
-                sfdx sgd:source:delta --to HEAD --from HEAD^ --output-dir .
+                sfdx sgd:source:delta --to ${{ steps.vars.outputs.to }} --from ${{ steps.vars.outputs.from }} --output-dir .
                 ls -la
 
             - name: Write Auth URL to File
