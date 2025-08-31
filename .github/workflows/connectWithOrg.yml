@@ -19,3 +19,6 @@ jobs:
                     tar -xzf sf-linux-x64.tar.gz -C sf-cli --strip-components 1
                     echo "${PWD}/sf-cli/bin" >> $GITHUB_PATH
                 fi
+
+            - name: Check SF Version
+              run: sf --version
