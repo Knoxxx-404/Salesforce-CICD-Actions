@@ -30,5 +30,16 @@ jobs:
 
             - name: Get Delta
               run: |
-                sfdx sgd:source:delta --to HEAD --from HEAD^ --output .
+                sfdx sgd:source:delta --to HEAD --from HEAD^ --output-dir .
                 ls -la
+
+            - name: Write Auth URL to File
+              run: echo "${{ secrets.SF_TRG_SECURITY }}" > dxsecurity
+
+            - name: Authorize the SF Org
+              run: |
+                sf org login sfdx-url --sfdx-url-file dxsecurity --alias ${{ secrets.SF_TRG_ORG_ALIAS }} --set-default
+                echo "Authorized org and set alias to [${{ secrets.SF_TRG_ORG_ALIAS }}]"
+
+            - name: Validate the Delta Package
+              run: sf project deploy start --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --test-level RunLocalTests --dry-run --target-org ${{ secrets.SF_TRG_ORG_ALIAS }}
