@@ -22,3 +22,11 @@ jobs:
 
             - name: Check SF Version
               run: sf --version
+
+            - name: Install Plugins (Delta Plugin)
+              run: sfdx plugins:install sfdx-git-delta
+
+            - name: Get Delta
+              run: |
+                sfdx sgd:source:delta --to HEAD --from HEAD^ --output .
+                ls -la
