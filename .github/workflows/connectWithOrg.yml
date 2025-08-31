@@ -21,4 +21,4 @@ jobs:
                 fi
 
             - name: Check SF Version
-              run: sf --version
+              run: $(sf --version)
