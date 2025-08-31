@@ -32,7 +32,6 @@ jobs:
               run: |
                 sfdx sgd:source:delta --to HEAD --from HEAD^ --output-dir .
                 ls -la
-                ls -la force-app
 
             - name: Write Auth URL to File
               run: echo "${{ secrets.SF_TRG_SECURITY }}" > dxsecurity
