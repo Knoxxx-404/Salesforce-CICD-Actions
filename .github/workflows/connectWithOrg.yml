@@ -5,7 +5,7 @@ on:
       base_branch:
         description: 'Branch to compare against (e.g., main)'
         required: true
-        default: 'main'
+        default: 'master'
 jobs:
     validate-deployment:
         runs-on: ubuntu-latest

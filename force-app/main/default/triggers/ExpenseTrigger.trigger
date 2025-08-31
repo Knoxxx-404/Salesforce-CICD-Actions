@@ -1,5 +1,5 @@
 /**
- * @description       : 
+ * @description       : This is a description
  * @author            : Sangram Keshari Upadhyaya
  * @group             : 
  * @last modified on  : 01-09-2025
@@ -27,4 +27,5 @@ trigger ExpenseTrigger on Expense__c (after insert, after update, after delete, 
     if(!invoiceIds.isEmpty()){
         InvoiceService.updateInvoiceTotals(invoiceIds);
     }
+
 }
