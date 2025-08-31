@@ -9,7 +9,7 @@ jobs:
               
             - name: Install SF CLI
               run: |
-                if [[ sf ]];
+                if [[ $(sf) ]];
                 then
                     echo "SF cli is present"
                 else
