@@ -43,5 +43,4 @@ jobs:
 
             - name: Validate the Delta Package
               run: |
-                # sf project deploy start --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --test-level RunLocalTests --dry-run --target-org ${{ secrets.SF_TRG_ORG_ALIAS }}
-                sf project deploy validate --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --target-org ${{ secrets.SF_TRG_ORG_ALIAS }} --verbose --test-level RunLocalTests
+                sf project deploy start --manifest package/package.xml --pre-destructive-changes destructiveChanges/destructiveChanges.xml --test-level RunLocalTests --dry-run --target-org ${{ secrets.SF_TRG_ORG_ALIAS }}
